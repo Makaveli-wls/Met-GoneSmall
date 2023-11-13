@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
+
+    public float wallrunSpeed;
+
     bool readyToJump;
 
     [Header("Keybinds")]
@@ -38,8 +41,10 @@ public class PlayerMovement : MonoBehaviour
         walking,
         sprinting,
         air,
+        wallrunning,
     }
 
+    public bool wallrunning;
     private void Start ()
     {
         rb = GetComponent<Rigidbody>();
@@ -80,6 +85,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler () 
     {
+
+        if (wallrunning) 
+        {
+            state = MovementState.wallrunning;
+            moveSpeed = wallrunSpeed;
+        }
+
+
         if(grounded && Input.GetKey(sprintKey) )
         {
             state = MovementState.sprinting;

@@ -357,6 +357,7 @@
 "Assets/Scripts/Play.cs"
 "Assets/Scripts/PlayerCam.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/WallRunning.cs"
 "Assets/Scripts/WeaponSwapper.cs"
 -langversion:9.0
 
