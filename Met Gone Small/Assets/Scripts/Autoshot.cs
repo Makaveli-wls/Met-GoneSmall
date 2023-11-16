@@ -1,17 +1,20 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
-public class Autoshot : MonoBehaviour
+public class AutoShot : MonoBehaviour
 {
     public float damage = 10f;
     public float fireRate = 15;
     public float range = 100f;
-    public int currentAmmo;
+    public int currentAmmo = 1;
     public int maxAmmo = 25;
     public float reloadTime = 2f;
     private bool isReloading = false;
 
     public Camera fpsCam;
+    public TMP_Text ammoDisplay;
 
     private float nextTimeToFire = 0f;
     
@@ -39,6 +42,8 @@ public class Autoshot : MonoBehaviour
             nextTimeToFire = Time.time + 1f/fireRate;
             Shoot();
         }
+
+        ammoDisplay.text = currentAmmo.ToString();
     }
 
     IEnumerator Reload()
