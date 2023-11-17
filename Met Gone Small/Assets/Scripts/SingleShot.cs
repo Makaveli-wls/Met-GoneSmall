@@ -45,6 +45,12 @@ public class SingleShot : MonoBehaviour
         }
 
         ammoDisplay.text = currentAmmo.ToString();
+
+        if (Input.GetKeyDown("r") && (currentAmmo < maxAmmo))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
     }
 
     IEnumerator Reload()
