@@ -15,6 +15,12 @@ public class PlayerHealth : MonoBehaviour
         playerHealth = maxHealth;
     }
 
+    public void UpdateHealth(float mod) {
+        playerHealth =+ mod;
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
