@@ -15,6 +15,7 @@ public class SingleShot : MonoBehaviour
 
     public Camera fpsCam;
     public TMP_Text ammoDisplay;
+    public ParticleSystem muzzleFlash;
 
     private float nextTimeToFire = 0f;
 
@@ -66,12 +67,18 @@ public class SingleShot : MonoBehaviour
 
     void Shoot()
     {
+        muzzleFlash.Play();
         RaycastHit hit;
         currentAmmo--;
          Debug.Log("Ammo: " + currentAmmo);
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range));
         {
-            
+            Health enemy = hit.transform.GetComponent<Health>();
+                if(enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
+                
 
         }
     }
