@@ -56,13 +56,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\WallRunning.cs" />
-    <Compile Include="Assets\Scripts\Play.cs" />
     <Compile Include="Assets\Scripts\DIsplayHealth.cs" />
     <Compile Include="Assets\Scripts\SingleShot.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\WeaponSwapper.cs" />
     <Compile Include="Assets\Scripts\Autoshot.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />

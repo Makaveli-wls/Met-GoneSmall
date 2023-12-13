@@ -11,29 +11,34 @@ public class FollowScript : MonoBehaviour
     private float canAttack;
     public float speed = 5.0f;
     public Transform targetObj;
+    private bool canHit;
 
 
     void Update()
     {
         transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, speed * Time.deltaTime);
         canAttack += Time.deltaTime;
-        
+
+        if (attackSpeed <= canAttack)
+        {
+            canHit = true;
+        }
+        else 
+        {
+            canHit = false;
+        }
     }
 
     private void OnCollisionStay(Collision other)
     {
-        if (attackSpeed <= canAttack) 
-        {
-            if (other.gameObject.tag == "Player")
+        
+        
+            if (other.gameObject.tag == "Player" && canHit == true)
             {
                 other.gameObject.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
                 canAttack = 0f;
             } 
-        }
-        else
-        {
-                canAttack += Time.deltaTime;
-        }
+        
 
     }
 
