@@ -79,7 +79,6 @@ public class AutoShot : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
-
             
         }
     }

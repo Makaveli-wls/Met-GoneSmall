@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100.0f;
     public GameObject deathUI;
     public GameObject mainUI;
+    public AudioSource source;
+    public AudioSource backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +39,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void PlayerDies()
     {
+        source.Play();
+        backgroundMusic.Stop();
         Time.timeScale = 0;
         deathUI.SetActive(true);
         mainUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        
     }
 }

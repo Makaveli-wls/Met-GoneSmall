@@ -13,10 +13,11 @@ public class FollowScript : MonoBehaviour
     public Transform targetObj;
     private bool canHit;
 
-
+    
     void Update()
     {
         transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, speed * Time.deltaTime);
+
         canAttack += Time.deltaTime;
 
         if (attackSpeed <= canAttack)
