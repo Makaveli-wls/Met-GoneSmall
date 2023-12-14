@@ -8,6 +8,7 @@ public class EnemySpawn : MonoBehaviour
     public GameObject theEnemy;
     public int xPos;
     public int zPos;
+
     public int enemyCount;
 
     void Start()
