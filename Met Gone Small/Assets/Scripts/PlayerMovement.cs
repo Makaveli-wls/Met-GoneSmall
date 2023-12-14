@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float wallrunSpeed;
 
+    private bool doubleJump;
+
     bool readyToJump;
 
     [Header("Keybinds")]
@@ -63,13 +65,18 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = groundDrag;
         else
         rb.drag = 0;
+
+        if (grounded() && !Input.GetButton("Jump"))
+        {
+            doubleJump = false;
+        }
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
     }
-
+    
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -135,8 +142,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (grounded() || doubleJump)
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        doubleJump = !doubleJump;
     }
 
     private void ResetJump ()
@@ -144,5 +154,3 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 }
-
-
